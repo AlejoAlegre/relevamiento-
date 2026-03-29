@@ -114,8 +114,8 @@ const questions = [
       'Alertas o recordatorios automáticos',
       'Reportes más rápidos y claros',
       'Centralización de información',
-      'Otro',
     ],
+    allowOther: true,
   },
   {
     id: 'interes',
@@ -224,13 +224,13 @@ export default function BodegasSurveyPage() {
                 onChange={(e) => handleCheckbox(q.id, 'Otra', e.target.checked)}
                 className="h-4 w-4 accent-stone-900"
               />
-              <span className="text-sm text-stone-700">Otra</span>
+              <span className="text-sm text-stone-700">Otro</span>
             </label>
           )}
           {otherChecked && (
             <input
               type="text"
-              placeholder="Especificá el impacto..."
+              placeholder={q.id === 'impacto' ? 'Especificá el impacto...' : 'Especificá la mejora...'}
               value={(values[`${q.id}_otra`] as string) || ''}
               onChange={(e) => handleText(`${q.id}_otra`, e.target.value)}
               className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800 shadow-sm outline-none transition focus:border-stone-400"

@@ -13,6 +13,7 @@ const QUESTION_LABELS: Record<string, string> = {
   impacto_otra: 'Impacto (otro)',
   herramientas: 'Herramientas actuales',
   mejora: 'Tipo de mejora más útil',
+  mejora_otra: 'Mejora (otro)',
   interes: 'Interés en solución',
   contacto: 'Contacto',
 };
