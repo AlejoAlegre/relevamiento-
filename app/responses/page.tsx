@@ -11,9 +11,13 @@ const QUESTION_LABELS: Record<string, string> = {
   dificultad: 'Área con mayor dificultad',
   impacto: 'Impacto principal',
   impacto_otra: 'Impacto (otro)',
+  prioridad: 'Prioridad de resolución',
+  frecuencia: 'Frecuencia de la dificultad',
   herramientas: 'Herramientas actuales',
   mejora: 'Tipo de mejora más útil',
   mejora_otra: 'Mejora (otro)',
+  resolver_primero: 'Qué resolver primero',
+  resolver_primero_otra: 'Qué resolver primero (otro)',
   interes: 'Interés en solución',
   contacto: 'Contacto',
 };

@@ -87,6 +87,23 @@ const questions = [
     allowOther: true,
   },
   {
+    id: 'prioridad',
+    label: '¿Qué tan prioritario es resolver esta dificultad hoy para la bodega?',
+    type: 'radio',
+    options: ['Alta', 'Media', 'Baja'],
+  },
+  {
+    id: 'frecuencia',
+    label: '¿Con qué frecuencia aparece esta dificultad en la operación diaria?',
+    type: 'radio',
+    options: [
+      'Todos los días',
+      'Varias veces por semana',
+      'Algunas veces al mes',
+      'Esporádicamente',
+    ],
+  },
+  {
     id: 'herramientas',
     label: '¿Con qué herramientas gestionan hoy esa información?',
     type: 'checkbox',
@@ -114,6 +131,19 @@ const questions = [
       'Alertas o recordatorios automáticos',
       'Reportes más rápidos y claros',
       'Centralización de información',
+    ],
+    allowOther: true,
+  },
+  {
+    id: 'resolver_primero',
+    label: 'Si tuvieran que resolver una sola de estas dificultades primero, ¿cuál sería la más importante?',
+    type: 'checkbox',
+    options: [
+      'Orden y centralización de información',
+      'Seguimiento comercial o administrativo',
+      'Reportes e indicadores más claros',
+      'Automatización de tareas manuales',
+      'Control de stock, producción u operación',
     ],
     allowOther: true,
   },
