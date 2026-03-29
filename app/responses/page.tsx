@@ -9,6 +9,8 @@ const QUESTION_LABELS: Record<string, string> = {
   manual_excel: 'Procesos manuales / Excel',
   medicion: 'Qué les gustaría medir mejor',
   dificultad: 'Área con mayor dificultad',
+  impacto: 'Impacto principal',
+  impacto_otra: 'Impacto (otro)',
   herramientas: 'Herramientas actuales',
   mejora: 'Tipo de mejora más útil',
   interes: 'Interés en solución',

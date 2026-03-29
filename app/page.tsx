@@ -60,7 +60,7 @@ const questions = [
   {
     id: 'dificultad',
     label: '¿En qué área sienten hoy mayor dificultad de seguimiento, control o visibilidad?',
-    type: 'radio',
+    type: 'checkbox',
     options: [
       'Ventas / Comercial',
       'Administración',
@@ -72,6 +72,19 @@ const questions = [
       'Reportes e indicadores',
       'Otra',
     ],
+  },
+  {
+    id: 'impacto',
+    label: '¿Cuál es el impacto principal de esas dificultades?',
+    type: 'checkbox',
+    options: [
+      'Pérdida de tiempo',
+      'Errores frecuentes',
+      'Falta de control',
+      'Ventas perdidas',
+      'Demora en reportes',
+    ],
+    allowOther: true,
   },
   {
     id: 'herramientas',
@@ -184,6 +197,7 @@ export default function BodegasSurveyPage() {
 
     if (q.type === 'checkbox') {
       const selected = (values[q.id] as string[]) || [];
+      const otherChecked = q.allowOther && selected.includes('Otra');
       return (
         <div className="space-y-3">
           {q.options!.map((option) => (
@@ -202,6 +216,26 @@ export default function BodegasSurveyPage() {
               <span className="text-sm text-stone-700">{option}</span>
             </label>
           ))}
+          {q.allowOther && (
+            <label className="flex items-center gap-3 rounded-xl border border-stone-200 p-3 hover:bg-stone-50 transition cursor-pointer">
+              <input
+                type="checkbox"
+                checked={otherChecked}
+                onChange={(e) => handleCheckbox(q.id, 'Otra', e.target.checked)}
+                className="h-4 w-4 accent-stone-900"
+              />
+              <span className="text-sm text-stone-700">Otra</span>
+            </label>
+          )}
+          {otherChecked && (
+            <input
+              type="text"
+              placeholder="Especificá el impacto..."
+              value={(values[`${q.id}_otra`] as string) || ''}
+              onChange={(e) => handleText(`${q.id}_otra`, e.target.value)}
+              className="w-full rounded-2xl border border-stone-200 bg-white px-4 py-3 text-sm text-stone-800 shadow-sm outline-none transition focus:border-stone-400"
+            />
+          )}
         </div>
       );
     }
