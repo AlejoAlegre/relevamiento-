@@ -62,7 +62,22 @@ function formatDate(iso: string): string {
 
 export const revalidate = 0;
 
-export default async function ResponsesPage() {
+export default async function ResponsesPage({
+  searchParams,
+}: {
+  searchParams: { clave?: string };
+}) {
+  if (searchParams.clave !== 'River10') {
+    return (
+      <div className="min-h-screen bg-[#f6f1ea] flex items-center justify-center p-6">
+        <div className="max-w-sm w-full rounded-3xl border border-stone-200 bg-white p-10 shadow-sm text-center">
+          <h2 className="text-xl font-semibold text-stone-900">Acceso restringido</h2>
+          <p className="mt-3 text-sm text-stone-500">No tenés permiso para ver esta página.</p>
+        </div>
+      </div>
+    );
+  }
+
   const responses = await getResponses();
 
   return (
